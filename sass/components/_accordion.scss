@@ -18,8 +18,8 @@
     font-weight: 500;
     background-color: transparent;
     cursor: pointer;
-
-    transition: all 0.3s ease-in-out;
+    padding: 20px;
+    //transition: all 0.3s ease-in-out;
     border-radius: 5px;
     &-dot {
       width: 5px;
@@ -29,17 +29,24 @@
     }
     &-arrow {
       margin-right: auto;
-      width: 10px;
-      height: 10px;
+      width: 25px;
+      height: 25px;
       border-radius: 50%;
-      background-color: $primary-color;
+      background-color: #e7ecf4;
+      position: relative;
+      &:before {
+        content: url("#{$assetPath}/arrow.svg");
+        position: absolute;
+        top: 2px;
+        left: 8px;
+      }
     }
   }
   &__container {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 15px 30px;
+
     &:last-child {
       border-bottom: none;
     }
@@ -52,25 +59,46 @@
       height: auto;
       max-height: 0;
       overflow: hidden;
-      padding: 0px 10px;
+      padding: 0 90px;
+      //padding: 0px 10px;
     }
 
     &.border {
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid #d8e1ef;
     }
 
     &.active {
       border: 2px solid $primary-color;
       border-radius: 10px;
-      .accordion__button {
-        color: #fff;
-      }
-      .accordion__panel {
-        padding: 15px 10px 10px 10px;
+      & .accordion__panel {
+        padding: 0 90px 30px 90px;
         opacity: 1;
-        max-height: 500px;
+        max-height: fit-content;
+      }
+      .accordion__button-arrow {
+        background-color: $primary-color;
+        &:before {
+          content: url("#{$assetPath}/arrowUp.svg");
+          position: absolute;
+          top: 4px;
+          left: 8px;
+        }
       }
     }
+  }
+}
+
+.card {
+  min-width: 180px;
+  height: 180px;
+  background-color: red;
+  flex: 1;
+  margin-bottom: 10px;
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    justify-content: space-between;
   }
 }
 

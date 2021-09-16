@@ -28,4 +28,27 @@ function initAcc(elem, option) {
   });
 }
 
-initAcc(".accordion.v1", true);
+function Tabs(tabClass) {
+  const tabContainer = document.querySelector(tabClass);
+  const tabs = document.querySelectorAll(".project-tabs__tab");
+  const tabContent = document.querySelectorAll(".project-tabs__content");
+  tabContainer.addEventListener("click", function(e) {
+    const clicked = e.target.closest(".project-tabs__tab");
+    if (!clicked) return;
+    tabs.forEach(item => {
+      item.classList.remove("project-tabs__tab--active");
+    });
+
+    tabContent.forEach(item => {
+      item.classList.remove("project-tabs__content--active");
+    });
+    clicked.classList.add("project-tabs__tab--active");
+    document
+      .querySelector(`.project-tabs__content--${clicked.dataset.tab}`)
+      .classList.add("project-tabs__content--active");
+  });
+}
+
+Tabs(".project-tabs__container");
+
+initAcc(".accordion", true);
