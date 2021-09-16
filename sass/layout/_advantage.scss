@@ -1,0 +1,24 @@
+.advantage {
+  width: 90%;
+  z-index: 10;
+  margin: 0 auto;
+  &__box {
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    transform: translateY(-8rem);
+
+    &--pricing {
+      transform: translateY(-20rem);
+      padding: 0 1rem;
+      @include respond(phone) {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &--plan {
+    width: unset;
+    background-color: #f7ffff;
+  }
+}

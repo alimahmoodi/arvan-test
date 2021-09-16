@@ -1,0 +1,96 @@
+.accordion {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+
+  &__button {
+    margin: 0;
+    font-size: 1.6rem;
+    position: relative;
+    //padding: 15px 30px;
+    width: 100%;
+    color: black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 20px;
+    font-weight: 500;
+    background-color: transparent;
+    cursor: pointer;
+
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+    &-dot {
+      width: 5px;
+      height: 5px;
+      background-color: $primary-color;
+      border-radius: 50%;
+    }
+    &-arrow {
+      margin-right: auto;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $primary-color;
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px 30px;
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .accordion__panel {
+      width: 100%;
+      color: #262626;
+      transition: all 0.2s ease-in-out;
+      opacity: 0;
+      height: auto;
+      max-height: 0;
+      overflow: hidden;
+      padding: 0px 10px;
+    }
+
+    &.border {
+      border-bottom: 1px solid black;
+    }
+
+    &.active {
+      border: 2px solid $primary-color;
+      border-radius: 10px;
+      .accordion__button {
+        color: #fff;
+      }
+      .accordion__panel {
+        padding: 15px 10px 10px 10px;
+        opacity: 1;
+        max-height: 500px;
+      }
+    }
+  }
+}
+
+//&:after {
+//  content: "";
+//  width: 14px;
+//  height: 3px;
+//  border-radius: 2px;
+//  background-color: #fff;
+//  position: absolute;
+//  top: 6px;
+//}
+//&:before {
+//  content: "";
+//  width: 14px;
+//  height: 3px;
+//  border-radius: 2px;
+//  background-color: #fff;
+//  position: absolute;
+//  top: 6px;
+//  transform: rotate(90deg);
+//  transition: all 0.3s ease-in-out;
+//}

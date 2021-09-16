@@ -1,0 +1,38 @@
+@font-face {
+  font-family: yekan-bakh;
+  src: url("../../fonts/Yekan Bakh EN 05 Medium.ttf");
+  font-weight: normal;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  list-style-type: none;
+  text-decoration: none;
+}
+html {
+  font-size: 62.5%;
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+}
+body {
+  direction: rtl;
+  box-sizing: border-box;
+  position: relative;
+  font-family: yekan-bakh, serif;
+  font-weight: normal;
+  background-color: #f5f7fa;
+}
