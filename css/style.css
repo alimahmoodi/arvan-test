@@ -255,7 +255,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative; }
+  position: relative;
+  cursor: pointer; }
 
 .project-tabs__container {
   display: flex;
@@ -284,7 +285,7 @@ body {
     content: url("../svg/border-tabs.svg");
     top: 100%;
     transform: translateY(-69%);
-    left: -12px; }
+    left: -11px; }
 
 .accordion {
   display: flex;

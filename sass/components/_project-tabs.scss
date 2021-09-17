@@ -12,6 +12,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    cursor: pointer;
   }
   &__container {
     display: flex;
@@ -43,7 +44,7 @@
       content: url("#{$assetPath}/border-tabs.svg");
       top: 100%;
       transform: translateY(-69%);
-      left: -12px;
+      left: -11px;
     }
   }
 }

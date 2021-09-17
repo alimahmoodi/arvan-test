@@ -1,28 +1,29 @@
 function initAcc(elem, option) {
   document.addEventListener("click", function(e) {
-    if (!e.target.matches(elem + " .accordion__button")) {
-      return;
-    } else {
-      const prevSibling = e.target.parentElement.previousElementSibling;
-      if (!e.target.parentElement.classList.contains("active")) {
-        if (option === true) {
-          var elementList = document.querySelectorAll(
-            elem + " .accordion__container"
-          );
-          Array.prototype.forEach.call(elementList, function(e) {
-            e.classList.remove("active");
-          });
-        }
-        e.target.parentElement.classList.add("active");
+    const clicked = e.target.closest(".accordion__button");
+    if (!clicked) return;
+    const prevSibling = clicked.parentElement.previousElementSibling;
+    if (!clicked.parentElement.classList.contains("active")) {
+      if (option === true) {
+        var elementList = document.querySelectorAll(
+          elem + " .accordion__container"
+        );
+        elementList.forEach(item => {
+          item.classList.remove("active");
+        });
+        // Array.prototype.forEach.call(elementList, function(e) {
+        //   e.classList.remove("active");
+        // });
+      }
+      clicked.parentElement.classList.add("active");
 
-        if (prevSibling) {
-          prevSibling.classList.remove("border");
-        }
-      } else {
-        e.target.parentElement.classList.remove("active");
-        if (prevSibling) {
-          prevSibling.classList.add("border");
-        }
+      if (prevSibling) {
+        prevSibling.classList.remove("border");
+      }
+    } else {
+      clicked.parentElement.classList.remove("active");
+      if (prevSibling) {
+        prevSibling.classList.add("border");
       }
     }
   });
@@ -50,5 +51,4 @@ function Tabs(tabClass) {
 }
 
 Tabs(".project-tabs__container");
-
 initAcc(".accordion", true);
