@@ -1,0 +1,16 @@
+.meeting {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  &__header {
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+  }
+  &__header-text {
+    font-size: 1.6rem;
+  }
+  &__tab-wrapper {
+    width: 80%;
+    margin: auto;
+  }
+}

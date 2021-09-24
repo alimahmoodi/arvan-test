@@ -11,9 +11,6 @@ function initAcc(elem, option) {
         elementList.forEach(item => {
           item.classList.remove("active");
         });
-        // Array.prototype.forEach.call(elementList, function(e) {
-        //   e.classList.remove("active");
-        // });
       }
       clicked.parentElement.classList.add("active");
 
@@ -30,25 +27,31 @@ function initAcc(elem, option) {
 }
 
 function Tabs(tabClass) {
-  const tabContainer = document.querySelector(tabClass);
-  const tabs = document.querySelectorAll(".project-tabs__tab");
-  const tabContent = document.querySelectorAll(".project-tabs__content");
+  const tabContainer = document.querySelector(`#${tabClass}`);
+
+  const tabs = tabContainer.querySelectorAll(`.${tabClass}__tab`);
+
+  const tabContent = tabContainer.querySelectorAll(`.${tabClass}__content`);
+
   tabContainer.addEventListener("click", function(e) {
-    const clicked = e.target.closest(".project-tabs__tab");
+    const clicked = e.target.closest(`.${tabClass}__tab`);
+
     if (!clicked) return;
     tabs.forEach(item => {
-      item.classList.remove("project-tabs__tab--active");
+      item.classList.remove(`${tabClass}__tab--active`);
     });
 
     tabContent.forEach(item => {
-      item.classList.remove("project-tabs__content--active");
+      item.classList.remove(`${tabClass}__content--active`);
     });
-    clicked.classList.add("project-tabs__tab--active");
-    document
-      .querySelector(`.project-tabs__content--${clicked.dataset.tab}`)
-      .classList.add("project-tabs__content--active");
+    clicked.classList.add(`${tabClass}__tab--active`);
+    console.log(clicked);
+    tabContainer
+      .querySelector(`.${tabClass}__content--${clicked.dataset.tab}`)
+      .classList.add(`${tabClass}__content--active`);
   });
 }
 
-Tabs(".project-tabs__container");
+Tabs("project-tabs");
+Tabs("tabs-line");
 initAcc(".accordion", true);
